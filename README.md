@@ -1,36 +1,18 @@
-\# ESPHome ATHERMO Component
-
-
+# ESPHome ATHERMO Component
 
 ATB-THERMO power management component for ESPHome.
 
-
-
-\## Installation
-
+## Installation
 ```yaml
-
-external\_components:
-
-&nbsp; - source: github://atnel/athermo-component
-
-&nbsp;   components: \[ athermo ]
-
-
+external_components:
+  - source: github://atnel/athermo-component
+    components: [ athermo ]
 
 athermo:
-
-&nbsp; pir\_dis\_pin: GPIO15
-
-&nbsp; periph\_vcc\_pin: GPIO0
-
+  pir_dis_pin: GPIO15
+  periph_vcc_pin: GPIO0
 ```
 
+## Documentation
 
-
-\## Documentation
-
-
-
-See \[components/athermo/README.md](components/athermo/README.md)
-
+See [components/athermo/README.md](components/athermo/README.md)
