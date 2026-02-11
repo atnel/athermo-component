@@ -119,7 +119,7 @@ display:
   - platform: ssd1306_i2c
     model: "SSD1306 128x64"
     address: 0x3C
-    id: oled_display
+    id: oled_1
     # Display will work immediately on boot since peripherals are powered
 
 # Sensors
@@ -127,10 +127,13 @@ sensor:
   - platform: bme280
     address: 0x76
     temperature:
+      id: bme280_temp
       name: "Temperature"
     humidity:
+      id: bme280_hum
       name: "Humidity"
     pressure:
+      id: bme280_press
       name: "Pressure"
 
 # PIR motion detection
