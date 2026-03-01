@@ -1,7 +1,7 @@
 #include "athermo.h"
 #include "esphome/core/log.h"
 // test2
-// aaa mmm
+// aaa mmm 222
 namespace esphome {
 namespace athermo {
 
