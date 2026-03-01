@@ -1,0 +1,43 @@
+test
+
+procedure TForm1.lvClick(Sender: TObject);
+var
+  FileName, FullPath, Status: string;
+  FileLines: TStringList;
+  i: Integer;
+begin
+  if Trim(edGitDir.Text) = '' then Exit;
+  if lv.Selected = nil then Exit;
+
+  FileName := lv.Selected.SubItems[0];
+  Status := lv.Selected.Caption;
+
+  // plik LOCAL (untracked) - nie ma diffa, pokaż zawartość na zielono
+  if Status = 'LOCAL' then begin
+    RichEdit1.Lines.Clear;
+    RichEdit1.SelAttributes.Color := clGreen;
+    RichEdit1.SelAttributes.Style := [fsBold];
+    RichEdit1.SelText := '[ Nowy plik - istnieje tylko LOKALNIE ]' + #13#10;
+    RichEdit1.SelAttributes.Style := [];
+    RichEdit1.SelAttributes.Color := clGreen;
+    FullPath := IncludeTrailingPathDelimiter(edGitDir.Text) + StringReplace(FileName, '/', '\', [rfReplaceAll]);
+    if FileExists(FullPath) then begin
+      FileLines := TStringList.Create;
+      try
+        FileLines.LoadFromFile(FullPath, TEncoding.UTF8);
+        for i := 0 to FileLines.Count - 1 do begin
+          RichEdit1.SelStart := Length(RichEdit1.Text);
+          RichEdit1.SelAttributes.Color := clGreen;
+          RichEdit1.SelText := '+' + FileLines[i] + #13#10;
+        end;
+      finally
+        FileLines.Free;
+      end;
+    end;
+    Exit;
+  end;
+
+  GitQueueClear;
+  GitQueueAdd(gaDiffFile, 'diff origin/%branch% -- ' + FileName);
+  GitQueueRun(edGitDir.Text);
+end;
