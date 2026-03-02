@@ -1,6 +1,6 @@
 #include "athermo.h"
 #include "esphome/core/log.h"
-// test
+// test dev
 namespace esphome {
 namespace athermo {
 
