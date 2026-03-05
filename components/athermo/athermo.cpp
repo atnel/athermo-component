@@ -1,6 +1,6 @@
 #include "athermo.h"
 #include "esphome/core/log.h"
-// test main xxx MIREK ttt jest dopracowany
+
 namespace esphome {
 namespace athermo {
 
