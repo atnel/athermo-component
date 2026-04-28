@@ -27,22 +27,6 @@
 
 ## Installation
 
-### Method 1 - Directly from GitHub (recommended)
-
-No download needed - ESPHome will fetch the component automatically:
-
-```yaml
-external_components:
-  - source: github://atnel/athermo-component
-    components: [athermo]
-
-athermo:
-  pir_dis_pin: GPIO15      # PIR disconnect control
-  periph_vcc_pin: GPIO0    # P-MOSFET power control
-```
-
-### Method 2 - Local copy
-
 Copy the `athermo` folder to your project's `components` directory:
 
 ```
@@ -54,6 +38,8 @@ your-project/
         ├── athermo.h
         └── athermo.cpp
 ```
+
+## Configuration
 
 ```yaml
 external_components:
