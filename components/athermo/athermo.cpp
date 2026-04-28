@@ -3,7 +3,7 @@
 
 namespace esphome {
 namespace athermo {
-
+// mirekk36
 static const char *const TAG = "athermo";
 
 // HARDWARE priority = 600 (runs very early, before most components)
